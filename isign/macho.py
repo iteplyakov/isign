@@ -123,6 +123,8 @@ LoadCommand = Struct("LoadCommand",
                           LC_ENCRYPTION_INFO_64=0x2c,
                           LC_LINKER_OPTION=0x2d,
                           LC_LINKER_OPTIMIZATION_HINT=0x2e,
+                          LC_VERSION_MIN_TVOS=0x2f,
+                          LC_VERSION_MIN_WATCHOS = 0x30
                           ),
 
                      UInt32("cmdsize"),
