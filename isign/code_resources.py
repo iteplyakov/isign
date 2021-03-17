@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import binascii
 import copy
 import hashlib
@@ -131,6 +132,10 @@ class ResourceBuilder(object):
                 rule, path, relative_path = self.get_rule_and_paths(root,
                                                                     filename)
                 # log.debug(rule_debug_fmt.format(rule, path, relative_path))
+
+                # specifically ignore the CodeResources symlink in base directory if it exists (iOS 11+ fix)
+                if relative_path == "CodeResources" and os.path.islink(path):
+                    continue
 
                 if rule.is_exclusion():
                     continue
